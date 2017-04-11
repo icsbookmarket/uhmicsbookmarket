@@ -20,3 +20,9 @@ import './list-stuff-page.js';
 
 import './sell-books-page.html';
 import './sell-books-page.js';
+
+import './landing-page.html';
+import './landing-page.js';
+
+import './login.html';
+import './login.js';
