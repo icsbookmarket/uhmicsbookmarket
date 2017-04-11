@@ -1,0 +1,19 @@
+<template name="Login">
+
+  <img class="ui fluid background-image" src="/images/notebook-textbooks.jpg"
+       style="z-index: -5; position: absolute; display: block; width: 100vw; height: 100vh; object-fit: cover">
+
+  <div class="ui centered grid login-container">
+    <div class="ui two rows">
+      <div class="ui top-row"><h5 class="login-title">UHM ICS Book Market</h5></div>
+      <div class="ui row">
+        <form class="ui form login-form">
+          <div class="ui field">{{> Text_Form_Control placeholder="Username"}}</div>
+          <div class="ui field">{{> Text_Form_Control placeholder="Password"}}</div>
+          <button class="ui black button" style="margin-top: 12%" href="{{pathFor 'Home'}}" type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
