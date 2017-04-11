@@ -1,0 +1,82 @@
+<template name="Sell_Books_Page">
+  <div style="margin-top: 20px" class="ui container">
+    <form class="ui form">
+
+      <h4 class="ui dividing header">Book Information</h4>
+      <div class="field">
+        <label>Name</label>
+        <div class="two fields">
+          <div class="field">
+            <input type="text" name="first" placeholder="First Name">
+          </div>
+          <div class="field">
+            <input type="text" name="last" placeholder="Last Name">
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Book Title</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="title">
+          <i class="dropdown icon"></i>
+          <div class="default text">Select Title</div>
+          <div class="menu">
+            <div class="item" data-value="1">DATA STRUCTURES ABSTRACTIONS AND DESIGN USING JAVA</div>
+            <div class="item" data-value="2">INTRODUCTION TO ALGORITHMS</div>
+            <div class="item" data-value="3">LAND OF LISP</div>
+            <div class="item" data-value="4">PROGRAMMING LANGUAGE PRAGMATICS</div>
+          </div>
+        </div>
+      </div>
+
+
+        <div class="field">
+          <label>Price</label>
+          <div class="four wide field">
+            <input type="text" name="price" placeholder="Amount">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Book Condition</label>
+          <div class="inline fields">
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="example2">
+                <label>Excellent</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="example2">
+                <label>Good</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="example2">
+                <label>Fair</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox">
+                <input type="radio" name="example2">
+                <label>Poor</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <div class="ten wide field">
+        <label>Description</label>
+        <textarea></textarea>
+      </div>
+
+      <div class="ui button">Publish</div>
+
+    </form>
+  </div>
+</template>
+
+

@@ -1,0 +1,69 @@
+<template name="Book_Check_Page">
+
+  <div class="ui middle aligned centered grid">
+
+
+    <br>
+
+    <div class="row">
+      <div class="nine wide column">
+        <br><br><h1>AVAILABILITY RESULT</h1><br><hr>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="three wide column">
+        <img src="/images/141.png" style="max-width: 200px; height: 300px"/>
+      </div>
+      <div class="ten wide column">
+        <table style="margin-top: 20px" class="ui celled table">
+          <thead>
+          <tr>
+            <th>First</th>
+            <th>Last</th>
+            <th>Condition</th>
+            <th>Price</th>
+            <th>Detail</th>
+            <th>Contact Seller</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Ah Lim</td>
+              <td>Om</td>
+              <td>Excellent</td>
+              <td>$60</td>
+              <td><a href="{{pathFor 'Book_Detail_Page'}}">View</a></td>
+              <td><a href="{{pathFor 'Contact_Seller_Page'}}">Message Seller</a></td>
+            </tr>
+            <tr>
+              <td>Tyler</td>
+              <td>Dennings</td>
+              <td>Good</td>
+              <td>$45</td>
+              <td><a href="{{pathFor 'Book_Detail_Page'}}">View</a></td>
+              <td><a href="{{pathFor 'Contact_Seller_Page'}}">Message Seller</a></td>
+            </tr>
+            <tr>
+              <td>Jason</td>
+              <td>Trulo</td>
+              <td>Fair</td>
+              <td>$30</td>
+              <td><a href="{{pathFor 'Book_Detail_Page'}}">View</a></td>
+              <td><a href="{{pathFor 'Contact_Seller_Page'}}">Message Seller</a></td>
+            </tr>
+            <tr>
+              <td>Michelle</td>
+              <td>Duong</td>
+              <td>Excellent</td>
+              <td>$55</td>
+              <td><a href="{{pathFor 'Book_Detail_Page'}}">View</a></td>
+              <td><a href="{{pathFor 'Contact_Seller_Page'}}">Message Seller</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>
