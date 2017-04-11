@@ -1,9 +1,26 @@
-<template name="Home_Page">
-  <div class="ui middle aligned centered grid text container">
+<template name="Home">
 
-      <br><h1>Welcome to Uh Manoa ICS Student Book Market!</h1>
-      <h3>BUY/SELL unused ICS textbooks now!</h3><br><br><br><br><br>
-      <p></p>
+  <img class="ui fluid background-image" src="/images/library-stack.jpg"
+       style="z-index: -5; opacity: 0.4; position: absolute; display: block; width: 100vw; height: 100vh; object-fit: cover">
 
+<div class="ui container">
+  <div class="owl-carousel">
+    <div><img style="width: 400px; height: 500px" class="ui centered image" src="/images/data-structures.jpg" href="#"></div>
+    <div><img style="width: 400px; height: 500px" class="ui centered image" src="/images/discrete-math.jpg" href="#"></div>
+    <div><img style="width: 400px; height: 500px" class="ui centered image" src="/images/algorithms.JPG" href="#"></div>
+    <div><img style="width: 400px; height: 500px" class="ui centered image" src="/images/mastering-networks.jpg" href="#"></div>
   </div>
+</div>
+
+  <script>
+    $(".owl-carousel").owlCarousel({
+      items: 3,
+      autoplay: true,
+      autoPlaySpeed: 5000,
+      loop: true,
+      autoplayHoverPause: true,
+      dots: false,
+    });
+  </script>
+
 </template>
