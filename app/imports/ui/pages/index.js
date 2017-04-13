@@ -26,3 +26,6 @@ import './landing-page.js';
 
 import './login.html';
 import './login.js';
+
+import './your-books-page.html';
+import './your-books-page.js';

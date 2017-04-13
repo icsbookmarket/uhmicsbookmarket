@@ -34,6 +34,9 @@ h3, h4 {
   right: 0;
   color: black;
 }
+ui.centered.card-container {
+  margin: 4% 10% 4% 10%;
+}
 
 .login-title {
   font-size: 3em;
