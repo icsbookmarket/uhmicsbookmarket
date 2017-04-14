@@ -12,6 +12,7 @@ import './book-check-page.html';
 import './book-detail-page.html';
 
 import './browse-books-page.html';
+import './browse-books-page.js';
 
 import './contact-seller-page.html';
 
