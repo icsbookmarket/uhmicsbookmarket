@@ -225,6 +225,14 @@ const bookdataSeeds = [
 
 ];
 
+// var i=0;
+// $('id').each(function(){
+//   i++;
+//   var newID='menu'+i;
+//   $(this).attr('id',newID);
+//   $(this).val(i);
+// });
+
 /**
  * Initialize the Contacts collection if empty with seed data.
  */

@@ -1,5 +1,5 @@
 <template name="Browse_Books_Page">
-  <div class="ui middle aligned centered grid" style="padding-left: 1cm; padding-right: 1cm;">
+  <div class="ui middle aligned centered grid" style="padding-left: 2cm; padding-right: 2cm; padding-bottom: 1cm;">
 
     <br>
     <div class="row">
@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="ui six cards" style=" padding-top: 10px; padding-left: 10px; padding-bottom: 150px;">
+    <div class="ui six cards" style=" padding-top: 10px; padding-left: 10px; padding-bottom: 30px;">
 {{#each Bookdata in bookdataList}}
     <div class="ui card">
     <div class="image">
@@ -31,5 +31,8 @@
     </div>
 {{/each}}
     </div>
+
+    <button style="padding-left: 1cm; padding-right: 1cm;" class="{{ isActiveRoute 'Add_Book_Page'}} ui fluid medium red button" onclick="location.href='{{ pathFor 'Add_Book_Page' }}'">Add a New Book to the List</button>
+
   </div>
 </template>

@@ -1,6 +1,9 @@
 import './add-stuff-page.html';
 import './add-stuff-page.js';
 
+import './add-book-page.html';
+import './add-book-page.js';
+
 import './edit-stuff-page.html';
 import './edit-stuff-page.js';
 

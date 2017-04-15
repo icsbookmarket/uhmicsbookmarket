@@ -13,7 +13,6 @@ export const BookdataSchema = new SimpleSchema({
     label: 'image',
     type: String,
     optional: false,
-    max: 200,
   },
   title: {
     label: 'title',
@@ -30,7 +29,7 @@ export const BookdataSchema = new SimpleSchema({
   course: {
     label: 'course',
     type: String,
-    optional: true,
+    optional: false,
     max: 200,
   },
 });
