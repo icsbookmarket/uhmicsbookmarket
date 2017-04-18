@@ -1,332 +1,56 @@
 <template name="Your_Books_Page">
-<div class="ui centered card-container" style="margin-top: 2%; margin-bottom: 1%; margin-left: 1%; margin-right: 1%;">
-  <div class="ui four stackable doubling cards">
-    <div class="ui centered raised card">
-      <div class="content">
-        <div class="header">Java Concepts: Introduction</div>
-      </div>
-      <div class="content">
-        <div class="meta">Condition: 5<i class="yellow star icon"></i></div>
-        <div class="ui small feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Price: $60
+  <div class="ui centered card-container" style="margin-top: 2%; margin-bottom: 1%; margin-left: 1%; margin-right: 1%;">
+    <div class="ui four stackable doubling cards">
+      {{#each book in yourbookdataList}}
+      <div class="ui centered raised card">
+        <div class="content">
+          <div class="header">{{book.title}}</div>
+        </div>
+        <div class="content">
+          <div class="meta">Condition: {{book.condition}} <i class="yellow star icon"></i></div>
+          <div class="ui small feed">
+            <div class="event">
+              <div class="content">
+                <div class="summary">
+                  Price: {{book.price}}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Class: ICS 111
+            <div class="event">
+              <div class="content">
+                <div class="summary">
+                  Class: {{book.course}}
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="content">
+                <div class="summary">
+                  <i class="student icon"></i>
+                  {{book.first}} {{book.last}}
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="content">
+                <div class="summary">
+                  <i class="mail icon"></i>
+                  {{book.address}}
+                </div>
               </div>
             </div>
           </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="student icon"></i>George Michael
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="mail icon"></i>carelesswhsiper@hawaii.edu
-              </div>
-            </div>
+        </div>
+        <div class="center aligned extra content">
+          <div class="ui buttons">
+            <button class="{{ isActiveRoute 'Sell_Books_Page'}}ui big green button">Edit Post</button>
+            <div class="or"></div>
+            <button class="ui big red button">Delete Post</button>
           </div>
         </div>
       </div>
-      <div class="center aligned extra content">
-        <div class="ui buttons">
-          <button class="ui big green button">Edit Post</button>
-          <div class="or"></div>
-          <button class="ui big red button">Delete Post</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="ui centered raised card">
-    <div class="content">
-      <div class="header">Java Concepts: Introduction</div>
-    </div>
-    <div class="content">
-      <div class="meta">Condition: 5<i class="yellow star icon"></i></div>
-      <div class="ui small feed">
-        <div class="event">
-          <div class="content">
-            <div class="summary">
-              Price: $70
-            </div>
-          </div>
-        </div>
-
-        <div class="event">
-          <div class="content">
-            <div class="summary">
-              Class: ICS 111
-            </div>
-          </div>
-        </div>
-        <div class="event">
-          <div class="content">
-            <div class="summary">
-              <i class="student icon"></i>George Michael
-            </div>
-          </div>
-        </div>
-        <div class="event">
-          <div class="content">
-            <div class="summary">
-              <i class="mail icon"></i>carelesswhsiper@hawaii.edu
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="center aligned extra content">
-      <div class="ui buttons">
-      <button class="ui big green button">Edit Post</button>
-      <div class="or"></div>
-      <button class="ui big red button">Delete Post</button>
-      </div>
+      {{/each}}
     </div>
   </div>
-
-    <div class="ui centered raised card">
-      <div class="content">
-        <div class="header">Java Concepts: Introduction</div>
-      </div>
-      <div class="content">
-        <div class="meta">Condition: 5<i class="yellow star icon"></i></div>
-        <div class="ui small feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Price: $70
-              </div>
-            </div>
-          </div>
-
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Class: ICS 111
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="student icon"></i>George Michael
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="mail icon"></i>carelesswhsiper@hawaii.edu
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="center aligned extra content">
-        <div class="ui buttons">
-          <button class="ui big green button">Edit Post</button>
-          <div class="or"></div>
-          <button class="ui big red button">Delete Post</button>
-        </div>
-      </div>
-    </div>
-    <div class="ui centered raised card">
-      <div class="content">
-        <div class="header">Java Concepts: Introduction</div>
-      </div>
-      <div class="content">
-        <div class="meta">Condition: 5<i class="yellow star icon"></i></div>
-        <div class="ui small feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Price: $70
-              </div>
-            </div>
-          </div>
-
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Class: ICS 111
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="student icon"></i>George Michael
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="mail icon"></i>carelesswhsiper@hawaii.edu
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="center aligned extra content">
-        <div class="ui buttons">
-          <button class="ui big green button">Edit Post</button>
-          <div class="or"></div>
-          <button class="ui big red button">Delete Post</button>
-        </div>
-      </div>
-    </div>
-    <div class="ui centered raised card">
-      <div class="content">
-        <div class="header">Java Concepts: Introduction</div>
-      </div>
-      <div class="content">
-        <div class="meta">Condition: 5<i class="yellow star icon"></i></div>
-        <div class="ui small feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Price: $70
-              </div>
-            </div>
-          </div>
-
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Class: ICS 111
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="student icon"></i>George Michael
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="mail icon"></i>carelesswhsiper@hawaii.edu
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="center aligned extra content">
-        <div class="ui buttons">
-          <button class="ui big green button">Edit Post</button>
-          <div class="or"></div>
-          <button class="ui big red button">Delete Post</button>
-        </div>
-      </div>
-    </div>
-    <div class="ui centered raised card">
-      <div class="content">
-        <div class="header">Java Concepts: Introduction</div>
-      </div>
-      <div class="content">
-        <div class="meta">Condition: 5<i class="yellow star icon"></i></div>
-        <div class="ui small feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Price: $70
-              </div>
-            </div>
-          </div>
-
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Class: ICS 111
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="student icon"></i>George Michael
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="mail icon"></i>carelesswhsiper@hawaii.edu
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="center aligned extra content">
-        <div class="ui buttons">
-          <button class="ui big green button">Edit Post</button>
-          <div class="or"></div>
-          <button class="ui big red button">Delete Post</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="ui centered raised card">
-      <div class="content">
-        <div class="header">Java Concepts: Introduction</div>
-      </div>
-      <div class="content">
-        <div class="meta">Condition: 5<i class="yellow star icon"></i></div>
-        <div class="ui small feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Price: $70
-              </div>
-            </div>
-          </div>
-
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                Class: ICS 111
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="student icon"></i>George Michael
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <i class="mail icon"></i>carelesswhsiper@hawaii.edu
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="center aligned extra content">
-        <div class="ui buttons">
-          <button class="ui big green button">Edit Post</button>
-          <div class="or"></div>
-          <button class="ui big red button">Delete Post</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
 </template>
