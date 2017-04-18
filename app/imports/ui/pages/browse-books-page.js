@@ -7,7 +7,8 @@ Template.Browse_Books_Page.helpers({
    * @returns {*} All of the Bookdata documents.
    */
   bookdataList() {
-    return Bookdata.find();
+
+    return Bookdata.find({}, { sort: { course: 1 } });
   },
 });
 
