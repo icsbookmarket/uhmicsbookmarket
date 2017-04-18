@@ -50,7 +50,9 @@ Template.Add_Book_Page.events({
     // Determine validity.
     instance.context.validate(newBookData);
     if (instance.context.isValid()) {
+
       Bookdata.insert(newBookData);
+
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Browse_Books_Page');
     } else {
@@ -58,6 +60,8 @@ Template.Add_Book_Page.events({
     }
   },
 });
+
+
 
 
 
