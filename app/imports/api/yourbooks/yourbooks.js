@@ -40,17 +40,16 @@ export const YourBookSchema = new SimpleSchema({
     optional: false,
     max: 200,
   },
-  course: {
-    label: 'course',
-    type: String,
-    optional: false,
-    max: 200,
-  },
   address: {
     label: 'address',
     type: String,
     optional: false,
     max: 200,
+  },
+  description: {
+    label: 'description',
+    type: String,
+    optional: false,
   },
 });
 

@@ -1,5 +1,39 @@
+import { Template } from 'meteor/templating';
+import { ReactiveDict } from 'meteor/reactive-dict';
+import { _ } from 'meteor/underscore';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Bookdata, BookdataSchema } from '../../api/bookdata/bookdata.js';
+import { YourBookdata, YourBookSchema } from '../../api/yourbooks/yourbooks.js';
+
+//Template.Browse_Books_Page.helpers({
+
+  /**
+   * @returns {*} All of the Bookdata documents.
+   */
+  //bookdataList() {
+    //return Bookdata.find();
+  //},
+//});
+
 Template.Sell_Books_Page.onRendered(function enableDropDown() {
   this.$('.dropdown').dropdown();
+});
+
+const displayErrorMessages = 'displayErrorMessages';
+
+export const groupObjects = [{ label: 'First', value: 'First' },
+                            { label: 'Last', value: 'Last' },
+                            { label: 'Email', value: 'Email' },
+                            { label: 'Price', value: 'Price' },
+                            { label: 'Description', value: 'Description' }];
+export const titleList = ['DATA STRUCTURES ABSTRACTIONS AND DESIGN USING JAVA', 'INTRODUCTION TO ALGORITHMS'];
+export const conditionList = ['Excellent', 'Great', 'Good', 'Fair', 'Poor'];
+
+
+Template.Sell_Books_Page.onCreated(function onCreated() {
+  this.messageFlags = new ReactiveDict();
+  this.messageFlags.set(displayErrorMessages, false);
+  this.context = YourBookSchema.namedContext('Sell_Books_Page');
 });
 
 // import { Template } from 'meteor/templating';
@@ -18,41 +52,59 @@ Template.Sell_Books_Page.onRendered(function enableDropDown() {
 //   this.context = BookdataSchema.namedContext('Sell_Books_Page');
 // });
 //
-// Template.Sell_Books_Page.helpers({
-//   errorClass() {
-//     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
-//   },
-//   fieldError(fieldName) {
-//     const invalidKeys = Template.instance().context.invalidKeys();
-//     const errorObject = _.find(invalidKeys, (keyObj) => keyObj.name === fieldName);
-//     return errorObject && Template.instance().context.keyErrorMessage(errorObject.name);
-//   },
-// });
-//
-// Template.Sell_Books_Page.events({
-//   'submit .contact-data-form'(event, instance) {
-//     event.preventDefault();
-//     // Get name (text field)
-//     const first = event.target.First.value;
-//     const last = event.target.Last.value;
-//     const telephone = event.target.Telephone.value;
-//     const email = event.target.Email.value;
-//
-//     const newBookData = { first, last, telephone, email};
-//     // Clear out any old validation errors.
-//     instance.context.resetValidation();
-//     // Invoke clean so that newStudentData reflects what will be inserted.
-//     BookdataSchema.clean(newBookData);
-//     // Determine validity.
-//     instance.context.validate(newBookData);
-//     if (instance.context.isValid()) {
-//       Bookdata.insert(newBookData);
-//       instance.messageFlags.set(displayErrorMessages, false);
-//       FlowRouter.go('Home_Page');
-//     } else {
-//       instance.messageFlags.set(displayErrorMessages, true);
-//     }
-//   },
-// });
+Template.Sell_Books_Page.helpers({
+  errorClass() {
+    return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
+  },
+  fieldError(fieldName) {
+    const invalidKeys = Template.instance().context.invalidKeys();
+    const errorObject = _.find(invalidKeys, (keyObj) => keyObj.name === fieldName);
+    return errorObject && Template.instance().context.keyErrorMessage(errorObject.name);
+  },
+  conditions() {
+    return _.map(conditionList, function makeLevelObject(level) {return { label: level };});
+  },
+  //  Need to figure how to get the titles of books correctly
+  titles() {
+    const books = _.map(Bookdata, _.pluck(Bookdata, 'title'));
+    return books;
+  },
+  booktitles() {
+    return _.map(titleList, function makeTitleObject(level) {return {label: level};});
+  },
+  group() {
+    return groupObjects;
+  },
+});
+
+
+Template.Sell_Books_Page.events({
+  'submit .sale-data-form'(event, instance) {
+    event.preventDefault();
+    // Get name (text field)
+    const firstName = event.target.First.value;
+    const lastName = event.target.Last.value;
+    const title = event.target.Titles.value;
+    const email = event.target.Email.value;
+    const price = event.target.Price.value;
+    const condition = event.target.Level.value;
+    const description = event.target.Description.value;
+
+    const newSaleData = { title, condition, firstName, lastName, price, email, description };
+    // Clear out any old validation errors.
+    instance.context.resetValidation();
+    // Invoke clean so that newStudentData reflects what will be inserted.
+    BookdataSchema.clean(newSaleData);
+    // Determine validity.
+    instance.context.validate(newSaleData);
+    if (instance.context.isValid()) {
+      YourBookdata.insert(newSaleData);
+      instance.messageFlags.set(displayErrorMessages, false);
+      FlowRouter.go('Your_Books_Page');
+    } else {
+      instance.messageFlags.set(displayErrorMessages, true);
+    }
+  },
+});
 //
 //
