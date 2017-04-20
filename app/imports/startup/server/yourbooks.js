@@ -12,8 +12,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$70',
-    course: 'ICS 111',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'DISCRETE MATHEMATICS AND ITS APPLICATION',
@@ -21,8 +21,9 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$65',
-    course: 'ICS 141 / ICS 241',
-    address: 'markrc@hawaii.edu',
+    address: 'markrc23141413434134@hawaii.edu',
+    description: 'Buy me please. Price is negotiable. Put subject line ' +
+    'with the book title so I know which book you are inquiring about',
   },
   {
     title: 'DATA STRUCTURES ABSTRACTIONS AND DESIGN USING JAVA',
@@ -30,8 +31,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$80',
-    course: 'ICS 211',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'THE C PROGRAMMING LANGUAGE',
@@ -39,8 +40,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$40',
-    course: 'ICS 212',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'THE C++ PROGRAMMING LANGUAGE',
@@ -48,8 +49,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$50',
-    course: 'ICS 212',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'INTRODUCTION TO ALGORITHM',
@@ -57,8 +58,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$90',
-    course: 'ICS 311',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'PC ASSEMBLY LANGUAGE',
@@ -66,8 +67,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$90',
-    course: 'ICS 312',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'LAND OF LISP',
@@ -75,8 +76,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$90',
-    course: 'ICS 313',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'PROGRAMMING LANGUAGE PRAGMATICS',
@@ -84,8 +85,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$90',
-    course: 'ICS 313',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'DATABASE SYSTEMS: THE COMPLETE BOOK',
@@ -93,8 +94,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$90',
-    course: 'ICS 321',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'DIGITAL LOGIC DESIGN: A RIGOROUS APPROACH',
@@ -102,8 +103,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$90',
-    course: 'ICS 331',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
   {
     title: 'OPERATING SYSTEM CONCEPTS',
@@ -111,8 +112,8 @@ const yourbookdataSeeds = [
     first: 'Mark',
     last: 'Cummins',
     price: '$90',
-    course: 'ICS 332',
     address: 'markrc@hawaii.edu',
+    description: 'Buy me please',
   },
 ];
 
