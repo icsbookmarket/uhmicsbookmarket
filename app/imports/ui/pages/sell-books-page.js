@@ -5,15 +5,15 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Bookdata, BookdataSchema } from '../../api/bookdata/bookdata.js';
 import { YourBookdata, YourBookSchema } from '../../api/yourbooks/yourbooks.js';
 
-//Template.Browse_Books_Page.helpers({
+Template.Browse_Books_Page.helpers({
 
   /**
    * @returns {*} All of the Bookdata documents.
    */
-  //bookdataList() {
-    //return Bookdata.find();
-  //},
-//});
+  bookdataList() {
+    return Bookdata.find();
+  },
+});
 
 Template.Sell_Books_Page.onRendered(function enableDropDown() {
   this.$('.dropdown').dropdown();
@@ -22,13 +22,12 @@ Template.Sell_Books_Page.onRendered(function enableDropDown() {
 const displayErrorMessages = 'displayErrorMessages';
 
 export const groupObjects = [{ label: 'First', value: 'First' },
-                            { label: 'Last', value: 'Last' },
-                            { label: 'Email', value: 'Email' },
-                            { label: 'Price', value: 'Price' },
-                            { label: 'Description', value: 'Description' }];
+  { label: 'Last', value: 'Last' },
+  { label: 'Email', value: 'Email' },
+  { label: 'Price', value: 'Price' },
+  { label: 'Description', value: 'Description' }];
 export const titleList = ['DATA STRUCTURES ABSTRACTIONS AND DESIGN USING JAVA', 'INTRODUCTION TO ALGORITHMS'];
 export const conditionList = ['Excellent', 'Great', 'Good', 'Fair', 'Poor'];
-
 
 Template.Sell_Books_Page.onCreated(function onCreated() {
   this.messageFlags = new ReactiveDict();
@@ -62,21 +61,25 @@ Template.Sell_Books_Page.helpers({
     return errorObject && Template.instance().context.keyErrorMessage(errorObject.name);
   },
   conditions() {
-    return _.map(conditionList, function makeLevelObject(level) {return { label: level };});
-  },
-  //  Need to figure how to get the titles of books correctly
-  titles() {
-    const books = _.map(Bookdata, _.pluck(Bookdata, 'title'));
-    return books;
+    return _.map(conditionList, function makeLevelObject(level) {
+      return { label: level };
+    });
   },
   booktitles() {
-    return _.map(titleList, function makeTitleObject(level) {return {label: level};});
+    const bookDataTitles = Bookdata.find().fetch();
+    const l = [];
+    _.map(bookDataTitles, function (book) {
+      l.push({
+        value: book, label: book.title, selected: false,
+      }
+      );
+    });
+    return l;
   },
   group() {
     return groupObjects;
   },
 });
-
 
 Template.Sell_Books_Page.events({
   'submit .sale-data-form'(event, instance) {
