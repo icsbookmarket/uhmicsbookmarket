@@ -12,16 +12,9 @@
 
    Here's what this template might look like when instantiated:
 
-   <div class="field">
-     <label>GPA</label>
-     <select class="ui dropdown" name="GPA">
-       <option value="">(Select one)</option>
-       <option value="4">4.0+</option>
-       <option value="3" selected=true>3.0-3.9</option>
-     </select>
-   </div>
-  }}
 
+  }}
+  {{check options}}
   <div class="{{#if required}}required{{/if}} field">
     <label>{{label}}</label>
     <select multiple="{{multiple}}" class="ui dropdown" name="{{#if name}}{{name}}{{else}}{{label}}{{/if}}">
