@@ -72,16 +72,16 @@ Template.Sell_Books_Page.events({
     // Get name (text field)
     // Are these getting the right things? Especially Condition and Titles
     const title = event.target.Titles.value;
-    const email = event.target.Email.value;
-    const firstName = event.target.First.value;
-    const lastName = event.target.Last.value;
+    const address = event.target.Email.value;
+    const first = event.target.First.value;
+    const last = event.target.Last.value;
     const price = event.target.Price.value;
     const condition = event.target.Condition.value;
     const description = event.target.Description.value;
     console.log('Can you see me?');
-    console.log(`price: ${price}, condition: ${condition}, description: ${description}, lastName: ${lastName}, firstName: ${firstName}, email" ${email}`);
+    console.log(`price: ${price}, condition: ${condition}, description: ${description}, lastName: ${last}, firstName: ${first}, address" ${address}`);
 
-    const newSaleData = { title, condition, firstName, lastName, price, email, description };
+    const newSaleData = { title, condition, first, last, price, address, description };
     // Clear out any old validation errors.
     instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.
