@@ -21,12 +21,13 @@ Template.Sell_Books_Page.onRendered(function enableDropDown() {
 
 const displayErrorMessages = 'displayErrorMessages';
 
-export const groupObjects = [{ label: 'First', value: 'First' },
-  { label: 'Last', value: 'Last' },
-  { label: 'Email', value: 'Email' },
-  { label: 'Price', value: 'Price' },
-  { label: 'Description', value: 'Description' }];
-export const titleList = ['DATA STRUCTURES ABSTRACTIONS AND DESIGN USING JAVA', 'INTRODUCTION TO ALGORITHMS'];
+/*  export const groupObjects = [{ label: 'First', value: 'First' },
+                             { label: 'Last', value: 'Last' },
+                             { label: 'Email', value: 'Email' },
+                             { label: 'Price', value: 'Price' },
+                             { label: 'Description', value: 'Description' }];
+                             */
+
 export const conditionList = ['Excellent', 'Great', 'Good', 'Fair', 'Poor'];
 
 Template.Sell_Books_Page.onCreated(function onCreated() {
@@ -35,22 +36,6 @@ Template.Sell_Books_Page.onCreated(function onCreated() {
   this.context = YourBookSchema.namedContext('Sell_Books_Page');
 });
 
-// import { Template } from 'meteor/templating';
-// import { ReactiveDict } from 'meteor/reactive-dict';
-// import { _ } from 'meteor/underscore';
-// import { FlowRouter } from 'meteor/kadira:flow-router';
-// import { Bookdata, BookdataSchema } from '../../api/bookdata/bookdata.js';
-//
-// /* eslint-disable no-param-reassign */
-//
-// const displayErrorMessages = 'displayErrorMessages';
-//
-// Template.Sell_Books_Page.onCreated(function onCreated() {
-//   this.messageFlags = new ReactiveDict();
-//   this.messageFlags.set(displayErrorMessages, false);
-//   this.context = BookdataSchema.namedContext('Sell_Books_Page');
-// });
-//
 Template.Sell_Books_Page.helpers({
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
@@ -71,40 +56,48 @@ Template.Sell_Books_Page.helpers({
     _.map(bookDataTitles, function (book) {
       l.push({
         value: book, label: book.title, selected: false,
-      }
-      );
+      });
     });
     return l;
   },
-  group() {
+  /*group() {
     return groupObjects;
   },
+  */
 });
 
 Template.Sell_Books_Page.events({
   'submit .sale-data-form'(event, instance) {
     event.preventDefault();
     // Get name (text field)
-    const firstName = event.target.First.value;
-    const lastName = event.target.Last.value;
+    // Are these getting the right things? Especially Condition and Titles
     const title = event.target.Titles.value;
-    const email = event.target.Email.value;
+    const address = event.target.Email.value;
+    const first = event.target.First.value;
+    const last = event.target.Last.value;
     const price = event.target.Price.value;
-    const condition = event.target.Level.value;
+    const condition = event.target.Condition.value;
     const description = event.target.Description.value;
+    console.log('Can you see me?');
+    console.log(`price: ${price}, condition: ${condition}, description: ${description}, lastName: ${last}, firstName: ${first}, address" ${address}`);
 
-    const newSaleData = { title, condition, firstName, lastName, price, email, description };
+    const newSaleData = { title, condition, first, last, price, address, description };
     // Clear out any old validation errors.
     instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.
-    BookdataSchema.clean(newSaleData);
+    YourBookSchema.clean(newSaleData);
+    console.log(newSaleData);
     // Determine validity.
     instance.context.validate(newSaleData);
     if (instance.context.isValid()) {
+      console.log('What is here vv');
+      console.log(newSaleData);
       YourBookdata.insert(newSaleData);
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Your_Books_Page');
     } else {
+      console.log('What is here else');
+      console.log(newSaleData);
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
