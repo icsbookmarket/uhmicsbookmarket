@@ -17,6 +17,9 @@ import './book-detail-page.html';
 import './browse-books-page.html';
 import './browse-books-page.js';
 
+import './course-books.html';
+import '.course-books.js';
+
 import './contact-seller-page.html';
 
 import './list-stuff-page.html';

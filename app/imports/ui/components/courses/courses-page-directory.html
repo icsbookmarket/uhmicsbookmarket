@@ -1,0 +1,7 @@
+<template name="Course_Directory">
+  <div style="margin-top: 20px" class="ui cards">
+    {{#each course in courses }}
+      {{> Directory_Course course=course }}
+    {{/each}}
+  </div>
+</template>

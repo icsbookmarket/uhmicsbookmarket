@@ -63,6 +63,13 @@ FlowRouter.route('/browse-books', {
   },
 });
 
+FlowRouter.route('/courses', {
+  name: 'Course_Directory',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Course_Directory' });
+  },
+});
+
 FlowRouter.route('/add-book', {
   name: 'Add_Book_Page',
   action() {

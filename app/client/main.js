@@ -3,5 +3,6 @@ import '/imports/startup/both';
 import '/imports/api/stuff';
 import '/imports/ui/layouts';
 import '/imports/ui/components/form-controls';
+import '/imports/ui/components/courses';
 import '/imports/ui/pages';
 import '/imports/ui/stylesheets/style.css';

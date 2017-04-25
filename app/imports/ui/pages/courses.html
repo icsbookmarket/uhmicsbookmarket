@@ -1,0 +1,36 @@
+<template name="Courses">
+  {{#if Template.subscriptionsReady}}
+    <div style="margin-top: 10px" class="ui container">
+      <div class="ui cards">
+
+        {{#each Bookdata in bookdataList }}
+          {{> Directory_Course course=course }}
+        {{/each}}
+
+      </div>
+    </div>
+  {{/if}}
+</template>
+
+
+<div class="ui six cards" style=" padding-top: 10px; padding-left: 10px; padding-bottom: 30px;">
+  {{#each Bookdata in bookdataList}}
+    <div class="ui card">
+      <div class="image">
+        <img style="height: 265px" src={{Bookdata.image}} />
+      </div>
+      <div class="content">
+        <a class="header">{{Bookdata.title}}</a>
+        <div class="meta">
+          <span class="author">{{Bookdata.author}}</span>
+        </div>
+        <div class="course">
+          {{Bookdata.course}}
+        </div>
+      </div>
+      <div class="extra content">
+        <a class="{{ isActiveRoute 'Book_Check_Page'}} item" href="{{ pathFor 'Book_Check_Page' }}">Check Availability</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
