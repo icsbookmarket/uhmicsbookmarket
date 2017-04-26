@@ -15,7 +15,7 @@ Template.Browse_Books_Page.helpers({
   },
 });
 
-Template.Sell_Books_Page.onRendered(function enableDropDown() {
+Template.Edit_Your_Books_Page.onRendered(function enableDropDown() {
   this.$('.dropdown').dropdown();
 });
 
@@ -30,13 +30,18 @@ const displayErrorMessages = 'displayErrorMessages';
 
 export const conditionList = ['Excellent', 'Great', 'Good', 'Fair', 'Poor'];
 
-Template.Sell_Books_Page.onCreated(function onCreated() {
+Template.Edit_Your_Books_Page.onCreated(function onCreated() {
+  this.subscribe('YourBookdata');
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
-  this.context = YourBookSchema.namedContext('Sell_Books_Page');
+  this.context = YourBookSchema.namedContext('Edit_Your_Books_Page');
 });
 
-Template.Sell_Books_Page.helpers({
+Template.Edit_Your_Books_Page.helpers({
+  bookDataField(fieldName) {
+    const bookData = YourBookdata.findOne(FlowRouter.getParam('_id'));
+    return bookData && bookData[fieldName];
+  },
   errorClass() {
     return Template.instance().messageFlags.get(displayErrorMessages) ? 'error' : '';
   },
@@ -66,7 +71,7 @@ Template.Sell_Books_Page.helpers({
   */
 });
 
-Template.Sell_Books_Page.events({
+Template.Edit_Your_Books_Page.events({
   'submit .sale-data-form'(event, instance) {
     event.preventDefault();
     // Get name (text field)
@@ -81,23 +86,24 @@ Template.Sell_Books_Page.events({
     console.log('Can you see me?');
     console.log(`price: ${price}, condition: ${condition}, description: ${description}, lastName: ${last}, firstName: ${first}, address" ${address}`);
 
-    const newSaleData = { title, condition, first, last, price, address, description };
+    const updatedSaleData = { title, condition, first, last, price, address, description };
     // Clear out any old validation errors.
     instance.context.resetValidation();
     // Invoke clean so that newStudentData reflects what will be inserted.
-    YourBookSchema.clean(newSaleData);
-    console.log(newSaleData);
+    YourBookSchema.clean(updatedSaleData);
+    console.log(updatedSaleData);
     // Determine validity.
-    instance.context.validate(newSaleData);
+    instance.context.validate(updatedSaleData);
     if (instance.context.isValid()) {
       console.log('What is here vv');
-      console.log(newSaleData);
-      YourBookdata.insert(newSaleData);
+      console.log(updatedSaleData);
+      YourBookdata.update(updatedSaleData);
+      // YourBookdata.update(FlowRouter.getParam('_id'), {$set: updatedSaleData });
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Your_Books_Page');
     } else {
       console.log('What is here else');
-      console.log(newSaleData);
+      console.log(updatedSaleData);
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },

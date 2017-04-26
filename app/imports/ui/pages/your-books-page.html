@@ -45,7 +45,10 @@
         </div>
         <div class="center aligned extra content">
           <div class="ui buttons">
-            <button class="{{ isActiveRoute 'Sell_Books_Page'}}ui big green button">Edit Post</button>
+
+            <div class="ui big green button">
+              <a style="color: white;" class="{{ isActiveRoute 'Edit_Your_Books_Page'}} item" href="{{ pathFor 'Edit_Your_Books_Page' }}">Edit Post</a>
+            </div>
             <div class="or"></div>
             <button class="ui big red button">Delete Post</button>
           </div>

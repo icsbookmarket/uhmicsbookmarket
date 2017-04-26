@@ -94,6 +94,7 @@ Template.Sell_Books_Page.events({
       console.log(newSaleData);
       YourBookdata.insert(newSaleData);
       instance.messageFlags.set(displayErrorMessages, false);
+      // instance.$('.dropdown').dropdown('restore defaults');
       FlowRouter.go('Your_Books_Page');
     } else {
       console.log('What is here else');

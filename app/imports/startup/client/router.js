@@ -34,6 +34,12 @@ FlowRouter.route('/sell-books', {
     BlazeLayout.render('App_Body', { main: 'Sell_Books_Page' });
   },
 });
+FlowRouter.route('/edit-books', {
+  name: 'Edit_Your_Books_Page',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'Edit_Your_Books_Page' });
+  },
+});
 
 FlowRouter.route('/list', {
   name: 'List_Stuff_Page',
