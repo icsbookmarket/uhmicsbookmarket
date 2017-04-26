@@ -55,7 +55,7 @@ Template.Sell_Books_Page.helpers({
     const l = [];
     _.map(bookDataTitles, function (book) {
       l.push({
-        value: book, label: book.title, selected: false,
+        label: book.title, selected: false,
       });
     });
     return l;
