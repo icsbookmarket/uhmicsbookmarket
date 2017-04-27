@@ -33,3 +33,7 @@ import './login.js';
 
 import './your-books-page.html';
 import './your-books-page.js';
+
+import './edit-your-books-page.html';
+import './edit-your-books-page.js';
+
