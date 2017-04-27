@@ -6,4 +6,6 @@ import './header.html';
 import './header.js';
 import './if-logged-in.html';
 import './if-logged-in.js';
+import './if-authorized.html';
+import './if-authorized.js';
 import './loading.html';
