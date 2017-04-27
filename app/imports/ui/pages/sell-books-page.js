@@ -22,11 +22,11 @@ Template.Sell_Books_Page.onRendered(function enableDropDown() {
 const displayErrorMessages = 'displayErrorMessages';
 
 /*  export const groupObjects = [{ label: 'First', value: 'First' },
-                             { label: 'Last', value: 'Last' },
-                             { label: 'Email', value: 'Email' },
-                             { label: 'Price', value: 'Price' },
-                             { label: 'Description', value: 'Description' }];
-                             */
+ { label: 'Last', value: 'Last' },
+ { label: 'Email', value: 'Email' },
+ { label: 'Price', value: 'Price' },
+ { label: 'Description', value: 'Description' }];
+ */
 
 export const conditionList = ['Excellent', 'Great', 'Good', 'Fair', 'Poor'];
 
@@ -61,9 +61,9 @@ Template.Sell_Books_Page.helpers({
     return l;
   },
   /*group() {
-    return groupObjects;
-  },
-  */
+   return groupObjects;
+   },
+   */
 });
 
 Template.Sell_Books_Page.events({
@@ -71,7 +71,15 @@ Template.Sell_Books_Page.events({
     event.preventDefault();
     // Get name (text field)
     // Are these getting the right things? Especially Condition and Titles
-    const title = event.target.Titles.value;
+    // const bookObject =
+    // console.log('Below here is log of bookObject');
+    // console.log(bookObject);
+    // const bookArray = Object.values(bookObject);
+    // console.log('Below here is log of bookArray');
+    // console.log(bookArray);
+    const title = event.target.Titles.label;
+    console.log('Below here is log of title');
+    console.log(title);
     const address = event.target.Email.value;
     const first = event.target.First.value;
     const last = event.target.Last.value;
@@ -79,7 +87,8 @@ Template.Sell_Books_Page.events({
     const condition = event.target.Condition.value;
     const description = event.target.Description.value;
     console.log('Can you see me?');
-    console.log(`price: ${price}, condition: ${condition}, description: ${description}, lastName: ${last}, firstName: ${first}, address" ${address}`);
+    console.log(`price: ${price}, condition: ${condition}, 
+    description: ${description}, lastName: ${last}, firstName: ${first}, address ${address}, title ${title}`);
 
     const newSaleData = { title, condition, first, last, price, address, description };
     // Clear out any old validation errors.
